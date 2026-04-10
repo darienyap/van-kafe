@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vän Kafé — Home</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 6% 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(105deg, rgba(43,32,16,0.97) 0%, rgba(43,32,16,0.72) 55%, rgba(43,32,16,0.3) 100%),
+        url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1600&q=80') center/cover no-repeat;
+      z-index: 0;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 600px; }
+    .hero-eyebrow {
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.3em;
+      color: var(--gold); font-weight: 500; margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .hero-eyebrow::before { content:''; display:inline-block; width:32px; height:1px; background:var(--gold-dim); }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.8rem, 8vw, 6.5rem);
+      font-weight: 400; line-height: 1; color: var(--cream); margin-bottom: 0.3rem;
+    }
+    .hero h1 em { display:block; font-style:italic; color:var(--gold); }
+    .hero-sub { font-size:1rem; color:var(--text-muted); font-weight:300; line-height:1.8; margin:2rem 0 3rem; max-width:420px; }
+    .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
+
+    .info-strip {
+      background: var(--bg2);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: repeat(3,1fr); padding: 0 6%;
+    }
+    .strip-item { padding:2rem 0; display:flex; align-items:center; gap:1rem; border-right:1px solid var(--border); }
+    .strip-item:last-child { border-right:none; padding-left:3rem; }
+    .strip-item:not(:first-child) { padding-left:3rem; }
+    .strip-icon { width:40px; height:40px; border:1px solid var(--border2); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; color:var(--gold); }
+    .strip-label { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--text-muted); margin-bottom:3px; }
+    .strip-value { font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--cream); }
+
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center; max-width:1100px; margin:0 auto; }
+    .about-img-wrap { position:relative; }
+    .about-img-wrap img { width:100%; height:520px; object-fit:cover; display:block; border:1px solid var(--border); }
+    .about-float { position:absolute; bottom:-2rem; right:-2rem; background:var(--gold); color:var(--bg); font-family:'Cormorant Garamond',serif; text-align:center; padding:1.5rem 2rem; line-height:1.2; }
+    .about-float big { display:block; font-size:2.8rem; font-weight:600; }
+    .about-float small { font-size:0.8rem; text-transform:uppercase; letter-spacing:0.12em; }
+    .about-text p { color:var(--text-muted); font-weight:300; line-height:1.9; font-size:0.97rem; margin-bottom:1.2rem; }
+    .feats { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-top:2.5rem; }
+    .feat { padding:1.2rem; background:var(--bg2); border:1px solid var(--border); }
+    .feat-name { font-size:0.8rem; font-weight:500; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold); margin-bottom:4px; }
+    .feat p { font-size:0.82rem; color:var(--text-muted); font-weight:300; margin:0; line-height:1.5; }
+
+    .menu-teaser { background:var(--bg2); }
+    .menu-teaser-inner { max-width:1100px; margin:0 auto; }
+    .menu-teaser-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3rem; }
+    .menu-preview-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5px; background:var(--border); }
+    .menu-preview-item { background:var(--bg2); overflow:hidden; position:relative; aspect-ratio:3/4; }
+    .menu-preview-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease; display:block; }
+    .menu-preview-item:hover img { transform:scale(1.06); }
+    .menu-preview-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(43,32,16,0.92) 0%, transparent 60%); display:flex; flex-direction:column; justify-content:flex-end; padding:1.2rem; }
+    .menu-preview-name { font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--cream); }
+    .menu-preview-price { font-size:0.8rem; color:var(--gold); margin-top:3px; }
+
+    .reserve-banner {
+      background: linear-gradient(rgba(43,32,16,0.88), rgba(43,32,16,0.88)),
+        url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1400&q=80') center/cover;
+      text-align:center; padding:7rem 6%;
+      border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+    }
+    .reserve-banner .section-title { margin-bottom:1rem; }
+    .reserve-banner p { color:var(--text-muted); font-weight:300; max-width:480px; margin:0 auto 2.5rem; line-height:1.8; }
+
+    @media (max-width:900px) {
+      .about-grid { grid-template-columns:1fr; gap:3rem; }
+      .about-float { right:0; }
+      .menu-preview-grid { grid-template-columns:repeat(2,1fr); }
+      .info-strip { grid-template-columns:1fr; }
+      .strip-item { border-right:none; border-bottom:1px solid var(--border); padding-left:0 !important; }
+      .strip-item:last-child { border-bottom:none; }
+      .menu-teaser-head { flex-direction:column; align-items:flex-start; gap:1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="index.html">Vän Kafé</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="https://reserve.oddle.me/en_SG/vankafe" target="_blank">Reservations</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="page">
+    <div class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow fi fi-d1">Est. 2025</p>
+        <h1 class="fi fi-d2"><em>Vän<br>Kafé</em></h1>
+        <p class="hero-sub fi fi-d3">A place where everyone is a vän.<br>Scandinavian simplicity meets heartfelt connection.</p>
+        <div class="hero-btns fi fi-d3">
+          <a href="menu.html" class="btn btn-gold">View Menu</a>
+          <a href="reservations.html" class="btn btn-outline">Reserve a Table</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-strip">
+      <div class="strip-item fi"><div class="strip-icon">⏰</div><div><div class="strip-label">Hours</div><div class="strip-value">Mon–Fri 12pm-1am · Sat–Sun 9:30am–1am</div></div></div>
+      <div class="strip-item fi fi-d1"><div class="strip-icon">📍</div><div><div class="strip-label">Location</div><div class="strip-value">2 Jurong Gateway Rd, #01-02<br>Singapore 608512</div></div></div>
+      <div class="strip-item fi fi-d2"><div class="strip-icon">📞</div><div><div class="strip-label">Phone</div><div class="strip-value">+65 88197934</div></div></div>
+    </div>
+
+    <section>
+      <div class="about-grid">
+        <div class="about-img-wrap fi">
+          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=900&q=80" alt="Inside Van Kafe" />
+          <div class="about-float"><big>6+</big><small>Years Brewing</small></div>
+        </div>
+        <div class="about-text fi fi-d1">
+          <span class="section-tag">Our Story</span>
+          <h2 class="section-title">A little corner that<br><em>feels like home</em></h2>
+          <div class="divider"></div>
+          <p>Vän Kafé was born from more than just a love for good coffee and food — it was built on the foundation of friendship. The name "Vän," meaning "friend" in Swedish, reflects the heart of who we are: a space created to bring people together.</p>
+          <p>Founded by Vän Hus Interior, Vän Kafé began as a dream shared among friends — friends who believed that design, comfort, and community could live in the same space. With a passion for aesthetics and a deep appreciation for meaningful connection, we set out to create a café that felt like a second home.</p>
+          <p>Our menu is crafted with the same care — celebrating quality ingredients, bold flavors, and the joy of sharing a meal or a cup of coffee with someone special. We're more than just a café. We're a community. A space where friendships begin, stories are shared, and time slows down just enough for you to savor what really matters.</p>
+          <div class="feats">
+            <div class="feat"><div class="feat-name">Scandivanian Design</div><p>Scandinavian interiors with calming aesthetics</p></div>
+            <div class="feat"><div class="feat-name">Glasshouse Ambience</div><p>Sunlit space designed for slow, peaceful moments</p></div>
+            <div class="feat"><div class="feat-name">Day to Night Experience</div><p>From relaxed daytime coffee to cosy evening drinks</p></div>
+            <div class="feat"><div class="feat-name">Pet Friendly</div><p>Outdoor shaded seating for you and your pets</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu-teaser">
+      <div class="menu-teaser-inner">
+        <div class="menu-teaser-head fi">
+          <div><span class="section-tag">From Our Kitchen</span><h2 class="section-title">A taste of what's inside</h2></div>
+          <a href="menu.html" class="btn btn-outline">Full Menu →</a>
+        </div>
+        <div class="menu-preview-grid fi fi-d1">
+          <div class="menu-preview-item"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600&q=80" alt="Flat White" /><div class="menu-preview-overlay"><div class="menu-preview-name">Flat White</div><div class="menu-preview-price">$6/7</div></div></div>
+          <div class="menu-preview-item"><img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=600&q=80" alt="Eggs Benedict" /><div class="menu-preview-overlay"><div class="menu-preview-name">Eggs Benedict</div><div class="menu-preview-price">$21.80</div></div></div>
+          <div class="menu-preview-item"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80" alt="Croissant" /><div class="menu-preview-overlay"><div class="menu-preview-name">Penang Prawn Noodles</div><div class="menu-preview-price">$21.50</div></div></div>
+          <div class="menu-preview-item"><img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&q=80" alt="Matcha Latte" /><div class="menu-preview-overlay"><div class="menu-preview-name">Chicken Chop (Fried)</div><div class="menu-preview-price">$23.90</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="reserve-banner">
+      <span class="section-tag fi">Book a Table</span>
+      <h2 class="section-title fi fi-d1">Join us for something special</h2>
+      <p class="fi fi-d2">Weekends fill up fast. Reserve your spot in advance and we'll have everything ready when you arrive.</p>
+      <a href="reservations.html" class="btn btn-gold fi fi-d2">Make a Reservation</a>
+    </div>
+
+    <footer>
+      <span class="footer-logo">Vän Kafé</span>
+      <div class="footer-center">© 2026 Vän Kafé · All rights reserved<br/><span style="margin-top:4px;display:block;">Made with warmth in Singapore</span></div>
+      <div class="footer-right">2 Jurong Gateway Rd, #01-02<br>Singapore 608512<br/>+65 88197934</div>
+    </footer>
+  </div>
+  <script>
+    document.getElementById('hamburger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+    const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
