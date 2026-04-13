@@ -188,16 +188,46 @@
       <div class="footer-center">© 2026 Vän Kafé · All rights reserved<br/><span style="margin-top:4px;display:block;">Made with warmth in Singapore</span></div>
       <div class="footer-right">2 Jurong Gateway Rd, #01-02<br>Singapore 608512<br/>+65 88197934</div>
   </div>
-  <script>
-    document.getElementById('hamburger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+    <script>
+    // hamburger toggle
+    document.getElementById('hamburger').addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // close when clicking outside 
+    document.addEventListener('click', (e) => {
+      const nav = document.getElementById('navLinks');
+      const hamburger = document.getElementById('hamburger');
+
+      if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+        nav.classList.remove('open');
+      }
+    });
+
+    // contact form logic
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
+
       document.getElementById('sendSuccess').style.display = 'block';
+
       this.querySelectorAll('input, textarea').forEach(el => el.disabled = true);
-      this.querySelector('button[type=submit]').disabled = true;
-      this.querySelector('button[type=submit]').style.opacity = '0.5';
+
+      const btn = this.querySelector('button[type=submit]');
+      btn.disabled = true;
+      btn.style.opacity = '0.5';
     });
-    const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } }); }, { threshold: 0.08 });
+
+    // fade-in observer
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('on');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
     document.querySelectorAll('.fi').forEach(el => obs.observe(el));
   </script>
 </body>
