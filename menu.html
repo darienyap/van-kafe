@@ -15,22 +15,46 @@
     .menu-tab { padding:1.2rem 2rem; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.18em; font-weight:500; color:var(--text-muted); cursor:pointer; border:none; background:transparent; font-family:'Jost',sans-serif; border-bottom:2px solid transparent; transition:all 0.2s; white-space:nowrap; }
     .menu-tab:hover { color:var(--cream); }
     .menu-tab.active { color:var(--gold); border-bottom-color:var(--gold); }
-    .menu-section { display:none; padding:5rem 6%; }
+    .menu-section { display:none; padding:5rem 6%;}
     .menu-section.active { display:block; }
     .menu-section-header { margin-bottom:3rem; }
     .menu-section-header p { color:var(--text-muted); font-weight:300; font-size:0.95rem; max-width:480px; margin-top:0.75rem; line-height:1.7; }
-    .menu-list { display:grid; grid-template-columns:1fr 1fr; gap:1.5px; background:var(--border); max-width:1100px; }
-    .menu-item { background:var(--bg2); display:grid; grid-template-columns:120px 1fr; transition:background 0.2s; }
+    .menu-list { display:grid; grid-template-columns:1fr; gap:1.5px; background:var(--border); max-width:1100px;}
+    .menu-item { background:var(--bg2); display:grid; grid-template-columns: 1fr; transition:background 0.2s; }
+    .menu-group { grid-column: 1 / -1; padding: 1.2rem 1.5rem 0.5rem; background: var(--bg2); border-top: 1px solid var(--border); }
+    .menu-group .section-tag {font-size:1rem;}
     .menu-item:hover { background:var(--bg3); }
-    .menu-item-img { width:120px; height:120px; object-fit:cover; display:block; }
     .menu-item-body { padding:1.2rem 1.5rem; display:flex; flex-direction:column; justify-content:center; }
     .menu-item-name { font-family:'Cormorant Garamond',serif; font-size:1.15rem; color:var(--cream); margin-bottom:0.3rem; }
     .menu-item-desc { font-size:0.82rem; color:var(--text-muted); font-weight:300; line-height:1.6; margin-bottom:0.6rem; }
     .menu-item-footer { display:flex; align-items:center; justify-content:space-between; }
     .menu-item-price { font-size:0.9rem; color:var(--gold); font-weight:500; }
     .menu-tag { font-size:0.65rem; text-transform:uppercase; letter-spacing:0.12em; padding:3px 8px; border:1px solid var(--border2); color:var(--text-muted); border-radius:1px; }
-    @media (max-width:900px) { .menu-list { grid-template-columns:1fr; } }
-    @media (max-width:500px) { .menu-item { grid-template-columns:90px 1fr; } .menu-item-img { width:90px; height:90px; } }
+@media (max-width:500px) {
+  .menu-section {
+    padding: 3rem 5%;
+  }
+
+  .menu-item-body {
+    padding: 1rem 1.2rem;
+  }
+
+  .menu-item-name {
+    font-size: 1rem;
+  }
+
+  .menu-item-desc {
+    font-size: 0.75rem;
+  }
+
+  .menu-group {
+    padding: 1rem 1.2rem 0.4rem;
+  }
+
+  .menu-group .section-tag {
+    font-size: 0.85rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -59,44 +83,158 @@
     </nav>
 
     <div class="menu-section active" id="tab-smallplates">
-      <div class="menu-section-header fi"><span class="section-tag">Espresso Bar</span><h2 class="section-title">Coffee</h2><p>All espresso drinks use our house blend — medium roast with notes of dark chocolate, caramel, and a clean finish. Available with oat, soy, or full-cream milk.</p></div>
+      <div class="menu-section-header fi"><span class="section-tag">Sides</span><h2 class="section-title">Small Plates</h2><p>A selection of light bites crafted to complement your mains. From crispy, savory treats to comforting classics, perfect for sharing or enjoying on your own.</p></div>
       <div class="menu-list fi fi-d1">
-        <div class="menu-item"><img class="menu-item-img" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=300&q=80" alt="Espresso"/><div class="menu-item-body"><div class="menu-item-name">Espresso</div><div class="menu-item-desc">A straight double shot — bold, rich, with a thick crema.</div><div class="menu-item-footer"><span class="menu-item-price">RM 8</span><span class="menu-tag">Single Origin</span></div></div></div>
-        <div class="menu-item"><img class="menu-item-img" src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=300&q=80" alt="Flat White"/><div class="menu-item-body"><div class="menu-item-name">Flat White</div><div class="menu-item-desc">Velvety microfoam over a double ristretto. Smooth and balanced.</div><div class="menu-item-footer"><span class="menu-item-price">RM 12</span></div></div></div>
-        <div class="menu-item"><img class="menu-item-img" src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=300&q=80" alt="Cappuccino"/><div class="menu-item-body"><div class="menu-item-name">Cappuccino</div><div class="menu-item-desc">Equal parts espresso, steamed milk, and thick foam. A timeless classic.</div><div class="menu-item-footer"><span class="menu-item-price">RM 11</span></div></div></div>
-        <div class="menu-item"><img class="menu-item-img" src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&q=80" alt="Cold Brew"/><div class="menu-item-body"><div class="menu-item-name">Cold Brew</div><div class="menu-item-desc">Steeped 18 hours for a naturally sweet, low-acid concentrate over ice.</div><div class="menu-item-footer"><span class="menu-item-price">RM 15</span><span class="menu-tag">Signature</span></div></div></div>
-        <div class="menu-item"><img class="menu-item-img" src="https://images.unsplash.com/photo-1485808191679-5f86510bd9d4?w=300&q=80" alt="Long Black"/><div class="menu-item-body"><div class="menu-item-name">Long Black</div><div class="menu-item-desc">Hot water followed by a double ristretto poured over to preserve the crema.</div><div class="menu-item-footer"><span class="menu-item-price">RM 10</span></div></div></div>
-        <div class="menu-item"><img class="menu-item-img" src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=300&q=80" alt="Latte"/><div class="menu-item-body"><div class="menu-item-name">Café Latte</div><div class="menu-item-desc">Espresso with steamed milk and a gentle layer of foam. Mild and creamy.</div><div class="menu-item-footer"><span class="menu-item-price">RM 12</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Crispy Tofu with Kicap Chili Api 🌶️</div><div class="menu-item-desc">Crunchy tofu bites drenched in sweet & spicy soy sauce</div><div class="menu-item-footer"><span class="menu-item-price">$13.80</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Roasted Cauliflower, Lemon Lime, Togarashi 👍</div><div class="menu-item-desc">Cauliflower roasted to perfection, tossed with citrus & Japanese chili spice</div><div class="menu-item-footer"><span class="menu-item-price">$13.90</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Prawn Toast 👍</div><div class="menu-item-desc">Juicy prawns stuffed in toast, deep-fried to golden perfection</div><div class="menu-item-footer"><span class="menu-item-price">$14.80</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Mushroom & Spinach Stir-Fry</div><div class="menu-item-desc">Wok-tossed mushroom & baby spinach in light soy sauce, perfect as a starter or side</div><div class="menu-item-footer"><span class="menu-item-price">$13.50</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Salmon Gravlax</div><div class="menu-item-desc">House cured salmon with dill & citrus on bed of tangy dijon cream & toasts</div><div class="menu-item-footer"><span class="menu-item-price">$16.50</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Honey Garlic Chicken Wing</div><div class="menu-item-desc">Crispy wings marinated in a sweet and savory blend of spices</div><div class="menu-item-footer"><span class="menu-item-price">$14.50</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Mushroom Croquettes 👍</div><div class="menu-item-desc">Golden-fried bites with creamy mushroom filling and a delicate truffle taste for a luxurious finish</div><div class="menu-item-footer"><span class="menu-item-price">$13.60</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Shrimp Gyoza with Szechuan Chili Oil 🌶️</div><div class="menu-item-desc">Pan-fried shrimp dumplings drizzled with bold Szechuan chili oil</div><div class="menu-item-footer"><span class="menu-item-price">$15.40</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Tako Wasabi with Tortilla 🌶️</div><div class="menu-item-desc">Zesty marinated octopus with wasabi, served with warm fluffy tortilla</div><div class="menu-item-footer"><span class="menu-item-price">$14.70</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Rojak 👍🌶️</div><div class="menu-item-desc">A tangy-sweet fruits tossed in rich shrimp paste dressing</div><div class="menu-item-footer"><span class="menu-item-price">$13.90</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Truffle Fries</div><div class="menu-item-desc">Golden fries tossed in aromatic truffle oil and herbs</div><div class="menu-item-footer"><span class="menu-item-price">$14.30</span></div></div></div>  
       </div>
     </div>
 
     <div class="menu-section" id="tab-appetizers">
-      <div class="menu-section-header fi"><span class="section-tag">Non-Coffee</span><h2 class="section-title">Drinks</h2><p>For those who prefer something without coffee — teas, tonics, and house-made sodas.</p></div>
+      <div class="menu-section-header fi"><span class="section-tag">Starters</span><h2 class="section-title">Appetisers</h2><p>Light, flavourful dishes designed to awaken your palate. A perfect introduction to your meal, from fresh and vibrant to warm and savoury beginnings.</p></div>
       <div class="menu-list fi fi-d1">
-        <div class="menu-item"><img class="menu-item-img" src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300&q=80" alt="Matcha"/><div class="menu-item-body"><div class="menu-item-name">Matcha Latte</div><div class="menu-item-desc">Ceremonial grade matcha whisked with steamed oat milk. Earthy and calming.</div><div class="menu-item-footer"><span class="menu-item-price">RM 14</span><span class="menu-tag">Signature</span></div></div></div>
-        <div class="menu-item"><img class="menu-item-img" src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=300&q=80" alt="Hojicha"/><div class="menu-item-body"><div class="menu-item-name">Hojicha Latte</div><div class="menu-item-desc">Roasted Japanese green tea with warm steamed milk. Toasty and warming.</div><div class="menu-item-footer"><span class="menu-item-price">RM 13</span></div></div></div>
-        <div class="menu-item"><img class="menu-item-img" src="https://images.unsplash.com/photo-1499638673689-79a0b5115d87?w=300&q=80" alt="Lemon Soda"/><div class="menu-item-body"><div class="menu-item-name">Honey Lemon Soda</div><div class="menu-item-desc">House-made honey syrup, fresh lemon, and sparkling water over ice.</div><div class="menu-item-footer"><span class="menu-item-price">RM 10</span></div></div></div>
-        <div class="menu-item"><img class="menu-item-img" src="https://images.unsplash.com/photo-1559181567-c3190ca9be46?w=300&q=80" alt="Hibiscus"/><div class="menu-item-body"><div class="menu-item-name">Hibiscus Iced Tea</div><div class="menu-item-desc">Tart and floral cold-brewed hibiscus with a touch of rose syrup.</div><div class="menu-item-footer"><span class="menu-item-price">RM 11</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Grilled Sea Prawns 👍</div><div class="menu-item-desc">Succulent sea prawns grilled with fragrant turmeric sauce, served with warm tortilla</div><div class="menu-item-footer"><span class="menu-item-price">$17.90</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Sake Steamed Clams 👍</div><div class="menu-item-desc">Fresh clams gently steamed in aromatic sake broth</div><div class="menu-item-footer"><span class="menu-item-price">$16.40</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Garden Salad with Smoked Duck</div><div class="menu-item-desc">Fresh crisp mixed greens topped with smoky duck breast for a savory twist</div><div class="menu-item-footer"><span class="menu-item-price">$17.30</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Caesar Salad with Grilled Chicken</div><div class="menu-item-desc">Crisp mix of lettuces dressed with velvety caesar dressing served with crispy garlic crouton</div><div class="menu-item-footer"><span class="menu-item-price">$17.50</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Glazed Kailan</div><div class="menu-item-desc">Charred Chinese broccoli glazed with a savory seaweed sauce</div><div class="menu-item-footer"><span class="menu-item-price">$17.50</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Swedish Meatballs (Kottbullar)</div><div class="menu-item-desc">Pan-roasted to juicy perfection, served with fluffy mashed potatoes & sour cherries</div><div class="menu-item-footer"><span class="menu-item-price">$17.50</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Grilled Eggplant with Miso Glaze</div><div class="menu-item-desc">Charred eggplant slices brushed with a sweet-savory miso glaze and topped with sesame seeds</div><div class="menu-item-footer"><span class="menu-item-price">$17.50</span></div></div></div>
       </div>
     </div>
 
     <div class="menu-section" id="tab-asianmains">
-      <div class="menu-section-header fi"><span class="section-tag">All-Day Dining</span><h2 class="section-title">Food</h2><p>Served from 8am until we close. Simple, seasonal, and satisfying — no frills, just good food.</p></div>
+      <div class="menu-section-header fi"><span class="section-tag">Traditional Favourites</span><h2 class="section-title">Asian Mains</h2><p>A selection of hearty, flavour-rich Asian dishes. From bold, savoury classics to comforting staples, each crafted for a satisfying meal.</p></div>
       <div class="menu-list fi fi-d1">
-        <div class="menu-item"><img class="menu-item-img" src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=300&q=80" alt="Eggs Benedict"/><div class="menu-item-body"><div class="menu-item-name">Eggs Benedict</div><div class="menu-item-desc">Poached eggs on brioche with house hollandaise and smoked salmon.</div><div class="menu-item-footer"><span class="menu-item-price">RM 26</span><span class="menu-tag">Bestseller</span></div></div></div>
-        <div class="menu-item"><img class="menu-item-img" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=300&q=80" alt="Avo Toast"/><div class="menu-item-body"><div class="menu-item-name">Avo Toast</div><div class="menu-item-desc">Sourdough with smashed avocado, cherry tomatoes, dukkah, and soft egg.</div><div class="menu-item-footer"><span class="menu-item-price">RM 22</span></div></div></div>
-        <div class="menu-item"><img class="menu-item-img" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=300&q=80" alt="Grain Bowl"/><div class="menu-item-body"><div class="menu-item-name">Grain Bowl</div><div class="menu-item-desc">Brown rice, roasted vegetables, pickled cucumber, tahini dressing, and a soft egg.</div><div class="menu-item-footer"><span class="menu-item-price">RM 24</span><span class="menu-tag">Vegetarian</span></div></div></div>
-        <div class="menu-item"><img class="menu-item-img" src="https://images.unsplash.com/photo-1553909489-cd47e0907980?w=300&q=80" alt="Toastie"/><div class="menu-item-body"><div class="menu-item-name">Grilled Cheese Toastie</div><div class="menu-item-desc">Aged cheddar and gruyère on sourdough with caramelised onion jam.</div><div class="menu-item-footer"><span class="menu-item-price">RM 18</span></div></div></div>
+        <div class="menu-group">
+          <span class="section-tag">Rice</span>
+        </div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Nasi Lemak with Crispy Rempah Chicken 👍🌶️</div><div class="menu-item-desc">Fragrant coconut rice served with spiced crispy chicken, sambal, egg, and condiments</div><div class="menu-item-footer"><span class="menu-item-price">$23.70</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Gyu Don 👍</div><div class="menu-item-desc">Japanese-style rice bowl topped with tender beef simmered in soy and onions</div><div class="menu-item-footer"><span class="menu-item-price">$24.80</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Tori Don</div><div class="menu-item-desc">Steamed rice topped with juicy grilled chicken in a savory yakiniku glaze</div><div class="menu-item-footer"><span class="menu-item-price">$22.90</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Vegan Bibimbap 🌶️</div><div class="menu-item-desc">Sauteed root vegetables dressed in earthy sesame oil served with spicy & tangy gochujang sauce and steamed rice</div><div class="menu-item-footer"><span class="menu-item-price">$22.30</span></div></div></div>
+        <div class="menu-group">
+          <span class="section-tag">Noodles</span>
+        </div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Chicken Noodles (Ji Si Mian-Inspired) 👍</div><div class="menu-item-desc">Springy noodles topped with tender seared chicken thigh and light soy sauce and lard</div><div class="menu-item-footer"><span class="menu-item-price">$18.50</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Laksa with Prawns 👍🌶️</div><div class="menu-item-desc">Spicy coconut curry noodle soup loaded with prawns and fresh herbs</div><div class="menu-item-footer"><span class="menu-item-price">$21.50</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Penang Prawn Noodles 🌶️</div><div class="menu-item-desc">Bold, aromatic prawn broth served with rice vermicelli, prawns, thinly sliced pork and chili paste</div><div class="menu-item-footer"><span class="menu-item-price">$19.50</span></div></div></div>
       </div>
     </div>
 
     <div class="menu-section" id="tab-westernmains">
-      <div class="menu-section-header fi"><span class="section-tag">Baked Fresh Daily</span><h2 class="section-title">Pastries & Bakes</h2><p>Our pastries are baked in-house from 6am each morning. Once they're gone, they're gone — arrive early.</p></div>
+      <div class="menu-section-header fi"><span class="section-tag">Classic Plates</span><h2 class="section-title">Western Mains</h2><p>A range of well-loved Western dishes. Featuring rich, hearty flavours and comforting favourites, perfect for a fulfilling dining experience.</p></div>
       <div class="menu-list fi fi-d1">
-        <div class="menu-item"><img class="menu-item-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&q=80" alt="Croissant"/><div class="menu-item-body"><div class="menu-item-name">Butter Croissant</div><div class="menu-item-desc">Laminated with French butter, baked fresh each morning. Crisp, flaky, golden.</div><div class="menu-item-footer"><span class="menu-item-price">RM 8</span><span class="menu-tag">Daily Bake</span></div></div></div>
-        <div class="menu-item"><img class="menu-item-img" src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=300&q=80" alt="Banana Bread"/><div class="menu-item-body"><div class="menu-item-name">Banana Bread</div><div class="menu-item-desc">Moist, dense, speckled with dark chocolate and toasted walnuts.</div><div class="menu-item-footer"><span class="menu-item-price">RM 9</span></div></div></div>
-        <div class="menu-item"><img class="menu-item-img" src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=300&q=80" alt="Cinnamon Roll"/><div class="menu-item-body"><div class="menu-item-name">Cinnamon Roll</div><div class="menu-item-desc">Pillowy rolls with brown sugar cinnamon swirl and cream cheese glaze.</div><div class="menu-item-footer"><span class="menu-item-price">RM 11</span><span class="menu-tag">Bestseller</span></div></div></div>
-        <div class="menu-item"><img class="menu-item-img" src="https://images.unsplash.com/photo-1604152135912-04a022e23696?w=300&q=80" alt="Scone"/><div class="menu-item-body"><div class="menu-item-name">Butter Scone</div><div class="menu-item-desc">Classic plain scone served with clotted cream and house strawberry jam.</div><div class="menu-item-footer"><span class="menu-item-price">RM 10</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Black Angus Ribeye, Roasted Baby Potatoes, Jus 👍</div><div class="menu-item-desc">Charcoal kissed Ribeye steak served with roasted baby potatoes and rich beef jus</div><div class="menu-item-footer"><span class="menu-item-price">$36.50</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Salmon, Shaved Fennel, Pesto Sauce</div><div class="menu-item-desc">Pan-seared salmon paired with a refreshing fennel salad, potatoes and fresh pesto sauce</div><div class="menu-item-footer"><span class="menu-item-price">$33.50</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Fish & Chips - Tartare Sauce 👍</div><div class="menu-item-desc">Crispy battered Cod Fish with golden fries, served with tangy tartare sauce</div><div class="menu-item-footer"><span class="menu-item-price">$37.50</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Chicken Chop (Fried)</div><div class="menu-item-desc">Crispy fried chicken chop served two ways. Choice of: Creamy Onion gravy served with crispy fries OR Classic chicken chop sauce served with Thai fragrant rice</div><div class="menu-item-footer"><span class="menu-item-price">$23.90</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Vegan Bowl</div><div class="menu-item-desc">A nourishing bowl of quinoa, avocado, roasted vegetables and chickpeas, finished with creamy tahini dressing</div><div class="menu-item-footer"><span class="menu-item-price">$19.60</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Cauliflower & Chickpea Stew 🌶️</div><div class="menu-item-desc">Oven-roasted cauliflower in harissa spices, served on a bed of spiced tomato chickpea stew</div><div class="menu-item-footer"><span class="menu-item-price">$23.80</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="menu-section" id="tab-pizza&burger">
+      <div class="menu-section-header fi"><span class="section-tag">Grill & Oven</span><h2 class="section-title">Pizza & Burger</h2><p>A satisfying mix of oven-baked pizzas and juicy burgers loaded with bold flavours, fresh ingredients, and crafted for indulgence.</p></div>
+      <div class="menu-list fi fi-d1">
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Carnivore 👍</div><div class="menu-item-desc">A hearty meat lover's pizza loaded with sausage, smoked chicken, and pepperoni</div><div class="menu-item-footer"><span class="menu-item-price">$33</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Quattro Fromage</div><div class="menu-item-desc">A rich and creamy four-cheese blend for serious cheese lovers</div><div class="menu-item-footer"><span class="menu-item-price">$32.60</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Truffle Carbonara</div><div class="menu-item-desc">A luxurious white pizza with smoked chicken, caramelized onions, and truffle-scented bechamel (Vegetarian Option Available)</div><div class="menu-item-footer"><span class="menu-item-price">$32.70</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Margherita</div><div class="menu-item-desc">A timeless classic with tomato base, fresh buffalo mozzarella, and fragrant basil</div><div class="menu-item-footer"><span class="menu-item-price">$28</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Bolognese</div><div class="menu-item-desc">Slow cooked wagyu farce cooked in red wine and tomatoes topped stringy mozzarella</div><div class="menu-item-footer"><span class="menu-item-price">$34</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Fried Chicken Burger</div><div class="menu-item-desc">Crispy fried chicken thigh and house hot sauce stacked with cheddar in a toasted bun</div><div class="menu-item-footer"><span class="menu-item-price">$24.80</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Classic Wagyu Beef Burger 👍</div><div class="menu-item-desc">Juicy wagyu beef patty with cheese, lettuce, tomato, and pickles in a soft bun</div><div class="menu-item-footer"><span class="menu-item-price">$26.50</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="menu-section" id="tab-pasta">
+      <div class="menu-section-header fi"><span class="section-tag">Italian Comforts</span><h2 class="section-title">Pasta</h2><p>A collection of pasta dishes tossed in rich, flavourful sauces from creamy classics to light, savoury favourites.</p></div>
+      <div class="menu-list fi fi-d1">
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Bolognese 👍</div><div class="menu-item-desc">Classic pasta tossed in rich, slow-cooked beef simmered in tomato sauce</div><div class="menu-item-footer"><span class="menu-item-price">$25.40</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Seafood Marinara</div><div class="menu-item-desc">A medley of seafood in zesty tomato marinara over al dente pasta</div><div class="menu-item-footer"><span class="menu-item-price">$25.60</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Smoked Duck Pasta 👍🌶️</div><div class="menu-item-desc">Smoky sliced duck breast paired with pasta tossed in olive oil, lifted by the fiery kick of red bird's eye chilli</div><div class="menu-item-footer"><span class="menu-item-price">$23.70</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Creamy Seafood Pasta</div><div class="menu-item-desc">Creamy, indulgent pasta loaded with prawns, squid, and clams</div><div class="menu-item-footer"><span class="menu-item-price">$25.80</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Creamy Smoked Chicken Pasta</div><div class="menu-item-desc">Tender smoked chicken in a rich, velvety cream sauce over pasta</div><div class="menu-item-footer"><span class="menu-item-price">$22.30</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Seafood Chili Padi 🌶️</div><div class="menu-item-desc">Fiery pasta tossed with mixed seafood and bird's eye chili for a bold local twist</div><div class="menu-item-footer"><span class="menu-item-price">$25.90</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="menu-section" id="tab-dessert">
+      <div class="menu-section-header fi"><span class="section-tag">Sweet Treats</span><h2 class="section-title">Dessert</h2><p>A delightful selection of desserts to end your meal from rich indulgences to light, refreshing bites.</p></div>
+      <div class="menu-list fi fi-d1">
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Tiramisu</div><div class="menu-item-desc">Classic Italian layered dessert with espresso-soaked sponge and creamy mascarpone</div><div class="menu-item-footer"><span class="menu-item-price">$13.50</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Chocolate Pie</div><div class="menu-item-desc">Rich chocolate filling in a buttery crust, perfect for chocoholics</div><div class="menu-item-footer"><span class="menu-item-price">$12.80</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Profiteroles, Chocolate</div><div class="menu-item-desc">Light choux puffs filled with ice-cream and drizzled with chocolate sauce</div><div class="menu-item-footer"><span class="menu-item-price">$11.90</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Ice Kacang 👍</div><div class="menu-item-desc">Shaved ice mountain topped with red beans, jelly, sweet corn, and syrup</div><div class="menu-item-footer"><span class="menu-item-price">$8.90</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Cendol 👍</div><div class="menu-item-desc">Chilled dessert with pandan jelly, coconut milk, and palm sugar syrup</div><div class="menu-item-footer"><span class="menu-item-price">$8.90</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="menu-section" id="tab-weekendbrunch">
+      <div class="menu-section-header fi"><span class="section-tag">Afternoon Favourites</span><h2 class="section-title">Weekend Brunch</h2><p>A relaxed selection of brunch classics perfect for slow weekends, featuring both sweet and savoury options to start your day right.<br><br><b><i>9.30am - 4pm Saturdays & Sundays</i></b></p></div>
+      <div class="menu-list fi fi-d1">
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Avocado Toast</div><div class="menu-item-desc">Smashed avocado on sourdough, topped with a poached egg, cherry tomatoes, and microgreens</div><div class="menu-item-footer"><span class="menu-item-price">$20.20</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Eggs Benedict</div><div class="menu-item-desc">Soft-poached eggs on English muffins with smoked turkey ham and creamy hollandaise sauce</div><div class="menu-item-footer"><span class="menu-item-price">$21.80</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Eggs Royale</div><div class="menu-item-desc">Soft-poached eggs on English muffins with smoked ocean trout and creamy hollandaise sauce</div><div class="menu-item-footer"><span class="menu-item-price">$23.30</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Big Breakfast Plate</div><div class="menu-item-desc">A hearty plate of eggs, sausage, hash browns, mushrooms, toast, and grilled tomato</div><div class="menu-item-footer"><span class="menu-item-price">$29.60</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Buttermilk Pancakes</div><div class="menu-item-desc">Fluffy pancakes stacked high with maple syrup, butter, and seasonal fruits</div><div class="menu-item-footer"><span class="menu-item-price">$21.40</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">French Toast</div><div class="menu-item-desc">Thick brioche slices soaked in cinnamon-vanilla custard and pan-fried, topped with berries and syrup</div><div class="menu-item-footer"><span class="menu-item-price">$21.40</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Shakshuka</div><div class="menu-item-desc">Poached eggs simmered in a spiced tomato and pepper sauce, served with crusty bread</div><div class="menu-item-footer"><span class="menu-item-price">$24.30</span></div></div></div>
+        <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Breakfast Burrito</div><div class="menu-item-desc">Tortilla wrap filled with scrambled eggs, cheese, avocado, and spiced chicken</div><div class="menu-item-footer"><span class="menu-item-price">$21.50</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="menu-section" id="tab-drinks">
+      <div class="menu-section-header fi"><span class="section-tag">Beverages</span><h2 class="section-title">Drinks</h2><p>A variety of refreshing drinks from handcrafted coffees and teas to cool, thirst-quenching options for any time of day.</p></div>
+      <div class="menu-list fi fi-d1">
+        <div class="menu-group">
+          <span class="section-tag">Coffee</span>
+        </div>
+            <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Long Black (Hot/Cold)</div><div class="menu-item-footer"><span class="menu-item-price">$5/6</span></div></div></div>
+            <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Latte (Hot/Cold)</div><div class="menu-item-footer"><span class="menu-item-price">$6/7</span></div></div></div>
+            <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Cappucino (Hot/Cold)</div><div class="menu-item-footer"><span class="menu-item-price">$6/7</span></div></div></div>
+            <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Flat White (Hot/Cold)</div><div class="menu-item-footer"><span class="menu-item-price">$6/7</span></div></div></div>
+            <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Mocha (Hot/Cold)</div><div class="menu-item-footer"><span class="menu-item-price">$6.50/7.50</span></div></div></div>
+            <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Chocolate (Hot/Cold)</div><div class="menu-item-footer"><span class="menu-item-price">$6.50/7.500</span></div></div></div>
+            <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Matcha (Hot/Cold)</div><div class="menu-item-footer"><span class="menu-item-price">$6/7</span></div></div></div>
+            <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Espresso</div><div class="menu-item-footer"><span class="menu-item-price">$3.50</span></div></div></div>
+            <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Double Espresso</div><div class="menu-item-footer"><span class="menu-item-price">$5.50</span></div></div></div>
+            <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Affogato</div><div class="menu-item-footer"><span class="menu-item-price">$7</span></div></div></div>
+        <div class="menu-group">
+          <span class="section-tag">Tea (Gryphon)</span>
+        </div>
+            <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">English Breakfast</div><div class="menu-item-footer"><span class="menu-item-price">$5.30</span></div></div></div>
+            <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Earl Grey</div><div class="menu-item-footer"><span class="menu-item-price">$5.30</span></div></div></div>
+            <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Lemon Mint</div><div class="menu-item-footer"><span class="menu-item-price">$5.30</span></div></div></div>
+            <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Apple Chamomile</div><div class="menu-item-footer"><span class="menu-item-price">$5.30</span></div></div></div>
+            <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Peppermint</div><div class="menu-item-footer"><span class="menu-item-price">$5.30</span></div></div></div>
+            <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Green Tea</div><div class="menu-item-footer"><span class="menu-item-price">$5.30</span></div></div></div>
+        <div class="menu-group">
+          <span class="section-tag">Refreshments</span>
+        </div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Coke / Sprite / Ginger Ale / Tonic / Soda / Green Tea / Red Bull (+$2)</div><div class="menu-item-footer"><span class="menu-item-price">$5.20/Can</span></div></div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Van Sparking Water</div><div class="menu-item-footer"><span class="menu-item-price">$6/Carafe</span></div></div></div>
+        <div class="menu-group">
+          <span class="section-tag">Juice</span>
+        </div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Radiance</div><div class="menu-item-desc">Carrot | Apple | Orange | Celery | Ginger</div><div class="menu-item-footer"><span class="menu-item-price">$8.30/Bottle</span></div></div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Immunity</div><div class="menu-item-desc">Apple | Orange | Celery</div><div class="menu-item-footer"><span class="menu-item-price">$8.30/Bottle</span></div></div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Radiance</div><div class="menu-item-desc">Carrot | Pineapple | Celery | Ginger</div><div class="menu-item-footer"><span class="menu-item-price">$8.30/Bottle</span></div></div></div>
+        <div class="menu-group">
+          <span class="section-tag">Homemade Soda</span>
+        </div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Butterfly Pea Assam Boi</div><div class="menu-item-desc">Assam Boi, Butterfly Pea Syrup, Lemon, Mint, Soda</div><div class="menu-item-footer"><span class="menu-item-price">$8.30/Bottle</span></div></div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Watermelon Mint</div><div class="menu-item-desc">Watermelon, Lychee, Mint, Soda</div><div class="menu-item-footer"><span class="menu-item-price">$8.30/Bottle</span></div></div></div>
+          <div class="menu-item"><div class="menu-item-body"><div class="menu-item-name">Thai Basil Lemonade</div><div class="menu-item-desc">Thai Basil, Lemon Juice, Soda</div><div class="menu-item-footer"><span class="menu-item-price">$8.30/Bottle</span></div></div></div>
       </div>
     </div>
 
@@ -109,13 +247,22 @@
   <script>
     document.getElementById('hamburger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
     document.querySelectorAll('.menu-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
-        tab.classList.add('active');
-        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+  tab.addEventListener('click', () => {
+
+    document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.menu-section').forEach(s => {
+      s.classList.remove('active');
+      s.querySelectorAll('.fi').forEach(el => {
+        el.classList.remove('on');
+        obs.observe(el);
       });
     });
+
+    tab.classList.add('active');
+    const target = document.getElementById('tab-' + tab.dataset.tab);
+    target.classList.add('active');
+  });
+});
     const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } }); }, { threshold: 0.08 });
     document.querySelectorAll('.fi').forEach(el => obs.observe(el));
   </script>
